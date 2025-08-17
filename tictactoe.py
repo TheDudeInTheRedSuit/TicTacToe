@@ -19,4 +19,35 @@ def printboard():
     print('|', end='')
     print(board[8])
 
-printboard()
+def pmove():
+    loopagain = True
+    while loopagain:
+        pmove = input('Where do you want to place an X')
+        pmove = int(pmove)
+        if board[pmove] == 'X':
+            loopagain = True
+        elif board == 'O':
+            loopagain = True
+        else:
+            loopagain = False
+    return pmove
+
+def cmove():
+    loopagain = True
+    while loopagain:
+        cmove = random.randint(0, 8)
+        if board[cmove] == 'X':
+            loopagain = True
+        elif board == 'O':
+            loopagain = True
+        else:
+            loopagain = False
+    return cmove
+
+def commitmove(pmove, cmove):
+    board[pmove] = 'X'
+    board[cmove] = 'O'
+
+while True:
+    printboard()
+    commitmove(pmove(), cmove())
