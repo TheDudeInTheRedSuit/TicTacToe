@@ -24,13 +24,14 @@ def pmove():
     while loopagain:
         pmove = input('Where do you want to place an X')
         pmove = int(pmove)
+        pmove -= 1
         if board[pmove] == 'X':
             loopagain = True
-        elif board == 'O':
+        elif board[pmove] == 'O':
             loopagain = True
         else:
             loopagain = False
-    return pmove
+    board[pmove] = 'X'
 
 def cmove():
     loopagain = True
@@ -38,16 +39,19 @@ def cmove():
         cmove = random.randint(0, 8)
         if board[cmove] == 'X':
             loopagain = True
-        elif board == 'O':
+        elif board[cmove] == 'O':
             loopagain = True
         else:
             loopagain = False
-    return cmove
-
-def commitmove(pmove, cmove):
-    board[pmove] = 'X'
     board[cmove] = 'O'
+
+def completemoves():
+    cmove()
+    pmove()
+
+
+
 
 while True:
     printboard()
-    commitmove(pmove(), cmove())
+    completemoves()
