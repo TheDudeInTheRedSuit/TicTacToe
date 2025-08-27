@@ -63,28 +63,35 @@ def windetect():
 
         for k in upwin:
             if board[i + k] == 'X':
-                sidewincountX += 1
+                upwincountX += 1
             elif board[i + k] == 'O':
-                sidewincountO += 1
+                upwincountO += 1
             else:
-                sidewincountX = O
-                sidewincountO = O
+                upwincountX = O
+                upwincountO = O
                 break
+                
         for l in diagwin:
             if board[i + l] == 'X':
-                sidewincountX += 1
+                diagwincountX += 1
             elif board[i + l] == 'O':
-                sidewincountO += 1
+                diagwincountO += 1
             else:
-                sidewincountX = O
-                sidewincountO = O
+                diagwincountX = O
+                diagwincountO = O
                 break
-        
+        if diagwincountX == 3 or sidewincountX == 3 or upwincountX == 3: 
+            print('well done you won')
+            exit()
+        elif diagwincountO == 3 or sidewincountO == 3 or upwincountO == 3: 
+            print('U idiot you lost to a randomisation bot')
+            exit()
 
 def completemoves():
-    cmove()
     pmove()
+    cmove()
 
 while True:
     printboard()
     completemoves()
+    windetect()
