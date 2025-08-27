@@ -1,6 +1,9 @@
 import random
 
 board = ['-','-','-','-','-','-','-','-','-',]
+sidewin = []
+upwin = []
+diagwin = []
 
 def printboard():
     print(board[0], end='')
@@ -44,6 +47,22 @@ def cmove():
         else:
             loopagain = False
     board[cmove] = 'O'
+
+def windetect():
+    for i in range(8):
+        for j in sidewin:
+            if board[i + j] == 'X':
+                sidewincount += 1
+            else:
+                sidewincount = 0
+                break
+    
+        
+        for k in upwin:
+
+        for l in diagwin:
+        
+        
 
 def completemoves():
     cmove()
