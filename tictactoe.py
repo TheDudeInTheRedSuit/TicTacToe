@@ -1,9 +1,10 @@
 import random
 
 board = ['-','-','-','-','-','-','-','-','-',]
-sidewin = []
-upwin = []
-diagwin = []
+sidewin = [0,1,2]
+upwin = [0,3,6]
+diagwin = [0,4,8]
+placestocheck = [0,1,2,3,6]
 
 def printboard():
     print(board[0], end='')
@@ -49,27 +50,40 @@ def cmove():
     board[cmove] = 'O'
 
 def windetect():
-    for i in range(8):
+    for i in placestocheck:
         for j in sidewin:
             if board[i + j] == 'X':
-                sidewincount += 1
+                sidewincountX += 1
+            elif board[i + j] == 'O':
+                sidewincountO += 1
             else:
-                sidewincount = 0
+                sidewincountX = O
+                sidewincountO = O
                 break
-    
-        
-        for k in upwin:
 
+        for k in upwin:
+            if board[i + k] == 'X':
+                sidewincountX += 1
+            elif board[i + k] == 'O':
+                sidewincountO += 1
+            else:
+                sidewincountX = O
+                sidewincountO = O
+                break
         for l in diagwin:
-        
+            if board[i + l] == 'X':
+                sidewincountX += 1
+            elif board[i + l] == 'O':
+                sidewincountO += 1
+            else:
+                sidewincountX = O
+                sidewincountO = O
+                break
         
 
 def completemoves():
     cmove()
     pmove()
-
-
-
 
 while True:
     printboard()
