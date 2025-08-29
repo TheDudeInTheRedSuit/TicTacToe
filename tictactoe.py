@@ -50,6 +50,12 @@ def cmove():
     board[cmove] = 'O'
 
 def windetect():
+    sidewincountO = 0
+    sidewincountX = 0
+    upwincountO = 0
+    upwincountX = 0
+    diagwincountO = 0
+    diagwincountX = 0
     for i in placestocheck:
         for j in sidewin:
             if board[i + j] == 'X':
@@ -57,8 +63,8 @@ def windetect():
             elif board[i + j] == 'O':
                 sidewincountO += 1
             else:
-                sidewincountX = O
-                sidewincountO = O
+                sidewincountX = 0
+                sidewincountO = 0
                 break
 
         for k in upwin:
@@ -67,8 +73,8 @@ def windetect():
             elif board[i + k] == 'O':
                 upwincountO += 1
             else:
-                upwincountX = O
-                upwincountO = O
+                upwincountX = 0
+                upwincountO = 0
                 break
                 
         for l in diagwin:
@@ -77,8 +83,8 @@ def windetect():
             elif board[i + l] == 'O':
                 diagwincountO += 1
             else:
-                diagwincountX = O
-                diagwincountO = O
+                diagwincountX = 0
+                diagwincountO = 0
                 break
         if diagwincountX == 3 or sidewincountX == 3 or upwincountX == 3: 
             print('well done you won')
